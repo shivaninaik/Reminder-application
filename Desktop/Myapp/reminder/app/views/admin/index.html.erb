@@ -1,0 +1,5 @@
+
+It's <%= Time.now %> 
+We have <%= pluralize(@total_reminder, "Alerts") %>.
+<h1>Wanna Create New Alert</h1>
+<%= link_to 'Create Alert', alerts_path, :method => :post %>

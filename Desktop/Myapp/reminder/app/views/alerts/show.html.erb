@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @alert.title %>
+</p>
+
+<p>
+  <b>Rem date:</b>
+  <%= @alert.reminder_time %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @alert.description %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @alert.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

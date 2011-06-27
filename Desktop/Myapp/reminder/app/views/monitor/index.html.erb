@@ -1,0 +1,16 @@
+<% if notice %> 
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+  <% if session[:user_id] %>
+      <p>Wanna create new alert</p>
+      <%= link_to 'Create Alert', new_alert_path, :method => :get %>
+  <% else %>
+      <div class="title">
+        <p>Please login For Reminder</p>
+      </div>
+      <div class="entry"> 
+        <%= button_to 'Log in', login_path(:user_id => params[:user_id]) %>
+      </div>
+  <% end %>
+

@@ -1,0 +1,39 @@
+<%= form_for(@alert) do |f| %>
+  <% if @alert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alert.errors.count, "error") %> prohibited this alert from being saved:</h2>
+
+      <ul>
+      <% @alert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="alert_field">
+    <%= f.label :title,"Title:" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="alert_field">
+     <%= f.label :reminder_type,"Reminder Type:"%><br />
+     <%= f.select :reminder_type,
+                  Alert::REMINDER_TYPES,
+                  :prompt => "Select reminder type:" %>
+   </div>
+  <div class="alert_field">
+    <%= f.label :reminder_time,"Reminder Time:" %><br />
+    <%= f.datetime_select :reminder_time %>
+  </div>
+  <div class="alert_field">
+    <%= f.label :description,"Description:" %><br />
+    <%= f.text_field :description, :rows => 6 %>
+  </div>
+  <div class="alert_field">
+    <%= f.label :email,"Email:" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
